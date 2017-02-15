@@ -1,0 +1,12 @@
+//
+// Created by Illusion on 2017. 2. 12..
+//
+
+#ifndef LINE_SEGMENT_DETECTION_EXPERIMENTS_SEEDS_SUPERPIXEL_H
+#define LINE_SEGMENT_DETECTION_EXPERIMENTS_SEEDS_SUPERPIXEL_H
+
+#include "opencv2/opencv.hpp"
+
+bool seeds_test(cv::Mat &image);
+
+#endif //LINE_SEGMENT_DETECTION_EXPERIMENTS_SEEDS_SUPERPIXEL_H
