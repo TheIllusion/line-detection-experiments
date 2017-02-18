@@ -16,10 +16,10 @@
 #define SELECTIVE_SEARCH_TEST 0
 
 // SEEDS: Superpixels Extracted via Energy-Driven Sampling", ECCV 2012
-#define SEEDS_TEST 0
+#define SEEDS_TEST 1
 
 // Blob Detection Test
-#define BLOB_DETECTION_TEST 1
+#define BLOB_DETECTION_TEST 0
 
 #define RESIZED_IMAGE_WIDTH 500
 

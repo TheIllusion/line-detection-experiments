@@ -12,7 +12,7 @@ using namespace std;
 static const cv::String file_name =
         //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1415_iphone.jpg";
         //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1416_iphone.jpg";
-        "/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1417_iphone.jpg";
+        //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1417_iphone.jpg";
         //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1418_iphone.jpg";
         //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1419_iphone.jpg";
         //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1420_iphone.jpg";
@@ -26,6 +26,7 @@ static const cv::String file_name =
 
         //Head Cams for people counting
         //"/Users/Illusion/Documents/Video/Head_Cam/3.png";
+        "/Users/Illusion/Documents/Video/Head_Cam/two_persons.png";
 
 int main() {
     cout << "Hello, World!" << endl;
