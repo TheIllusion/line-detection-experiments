@@ -9,7 +9,11 @@
 
 using namespace std;
 
-static const cv::String file_name =
+#define TEST_SET_ROOT_PATH "/home/illusion/ClionProjects/line-detection-experiments/Document_Aligner_TestSet/Document_Aligner_TestSet/normal_set/original/"
+
+static char filename_buff[100];
+
+static const char* file_name =
         //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1415_iphone.jpg";
         //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1416_iphone.jpg";
         //"/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/IMG_1417_iphone.jpg";
@@ -26,17 +30,35 @@ static const cv::String file_name =
 
         //Head Cams for people counting
         //"/Users/Illusion/Documents/Video/Head_Cam/3.png";
-        "/Users/Illusion/Documents/Video/Head_Cam/two_persons.png";
+        //"/Users/Illusion/Documents/Video/Head_Cam/two_persons.png";
+
+        //i7-2600k
+        //"IMG_1415_iphone.jpg";
+        //"IMG_1415_iphone.jpg";
+        //"IMG_1416_iphone.jpg";
+        //"IMG_1417_iphone.jpg";
+        //"IMG_1418_iphone.jpg";
+        //"IMG_1419_iphone.jpg";
+        //"IMG_1420_iphone.jpg";
+        //"IMG_1421_iphone.jpg";
+        //"20170125_152406_galaxy.jpg";
+        //"20170125_152538_galaxy.jpg";
+        //"20170125_153220_galaxy.jpg";
+        "20170125_153230_galaxy.jpg";
+        //"20170125_153242_galaxy.jpg";
 
 int main() {
     cout << "Hello, World!" << endl;
 
+    strcpy(filename_buff, TEST_SET_ROOT_PATH);
+    strcat(filename_buff, file_name);
+
     // open the image file
 #if !LINE_SEGMENT_DETECTION_TEST
     //&& !BLOB_DETECTION_TEST
-    cv::Mat image = cv::imread(file_name, cv::IMREAD_COLOR);
+    cv::Mat image = cv::imread(filename_buff, cv::IMREAD_COLOR);
 #else
-    cv::Mat image = cv::imread(file_name, cv::IMREAD_GRAYSCALE);
+    cv::Mat image = cv::imread(filename_buff, cv::IMREAD_GRAYSCALE);
 #endif
 
     if (image.data == NULL)
