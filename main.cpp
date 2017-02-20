@@ -11,8 +11,8 @@
 
 using namespace std;
 
-//#define TEST_SET_ROOT_PATH "/home/illusion/ClionProjects/line-detection-experiments/Document_Aligner_TestSet/Document_Aligner_TestSet/normal_set/original/"
-#define TEST_SET_ROOT_PATH "/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/"
+#define TEST_SET_ROOT_PATH "/home/illusion/ClionProjects/line-detection-experiments-git/Document_Aligner_TestSet/Document_Aligner_TestSet/normal_set/original/"
+//#define TEST_SET_ROOT_PATH "/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/"
 
 static char filename_buff[100];
 
@@ -36,7 +36,7 @@ static const char* file_name =
         //"/Users/Illusion/Documents/Video/Head_Cam/two_persons.png";
 
         //i7-2600k
-        "IMG_1415_iphone.jpg";
+        //"IMG_1415_iphone.jpg";
         //"IMG_1415_iphone.jpg";
         //"IMG_1416_iphone.jpg";
         //"IMG_1417_iphone.jpg";
@@ -45,7 +45,7 @@ static const char* file_name =
         //"IMG_1420_iphone.jpg";
         //"IMG_1421_iphone.jpg";
         //"20170125_152406_galaxy.jpg";
-        //"20170125_152538_galaxy.jpg";
+        "20170125_152538_galaxy.jpg";
         //"20170125_153220_galaxy.jpg";
         //"20170125_153230_galaxy.jpg";
         //"20170125_153242_galaxy.jpg";
@@ -57,7 +57,7 @@ int main() {
     strcat(filename_buff, file_name);
 
     // open the image file
-#if !LINE_SEGMENT_DETECTION_TEST && !HARRIS_CORNERS
+#if !LINE_SEGMENT_DETECTION_TEST && !HARRIS_CORNERS &&!GFTT_GOOD_FEATURE_TO_TRACK
     //&& !BLOB_DETECTION_TEST
     cv::Mat image = cv::imread(filename_buff, cv::IMREAD_COLOR);
 #else
@@ -103,6 +103,10 @@ int main() {
         return -1;
 #elif CORNER_DETECTION_TEST
     bool ret = detect_corners(image);
+    if (ret == false)
+        return -1;
+
+    ret = lbd_detector(image);
     if (ret == false)
         return -1;
 #endif

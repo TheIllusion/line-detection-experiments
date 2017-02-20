@@ -4,6 +4,8 @@
 
 #include "lsd_line_segment_detector.h"
 
+#define MIN_LINE_SEG_LENGTH_LSD 300
+
 bool lsd_detector(cv::Mat &image)
 {
     // Create and LSD detector with standard or no refinement.
@@ -25,6 +27,19 @@ bool lsd_detector(cv::Mat &image)
 
     double duration_ms = (double(cv::getTickCount()) - start) * 1000 / cv::getTickFrequency();
     std::cout << "It took " << duration_ms << " ms." << std::endl;
+    std::cout << "Number of line segments " << lines_std.size() << std::endl;
+
+    for(std::vector<cv::Vec4f>::iterator it = lines_std.begin(); it != lines_std.end(); it++)
+    {
+        double dist = cv::sqrt( (it->val[0] - it->val[1]) * (it->val[0] - it->val[1]) +
+                                (it->val[2] - it->val[3]) * (it->val[2] - it->val[3]));
+        if(dist < MIN_LINE_SEG_LENGTH_LSD)
+            it = lines_std.erase(it);
+        else
+            std::cout << "dist = " << dist << std::endl;
+
+    }
+
 
     // Show found lines
     ls->drawSegments(image, lines_std);
