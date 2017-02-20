@@ -7,6 +7,7 @@
 #include "seeds_superpixel.h"
 #include "simple_blob_detector.h"
 #include "watershed.h"
+#include "detect_corners.h"
 
 using namespace std;
 
@@ -56,7 +57,7 @@ int main() {
     strcat(filename_buff, file_name);
 
     // open the image file
-#if !LINE_SEGMENT_DETECTION_TEST
+#if !LINE_SEGMENT_DETECTION_TEST && !HARRIS_CORNERS
     //&& !BLOB_DETECTION_TEST
     cv::Mat image = cv::imread(filename_buff, cv::IMREAD_COLOR);
 #else
@@ -98,6 +99,10 @@ int main() {
         return -1;
 #elif WATERSHED_TEST
     bool ret = process_watershed(image);
+    if (ret == false)
+        return -1;
+#elif CORNER_DETECTION_TEST
+    bool ret = detect_corners(image);
     if (ret == false)
         return -1;
 #endif

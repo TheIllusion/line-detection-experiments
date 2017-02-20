@@ -22,7 +22,10 @@
 #define BLOB_DETECTION_TEST 0
 
 // Watershed Test
-#define WATERSHED_TEST 1
+#define WATERSHED_TEST 0
+
+// Corner Detection Test
+#define CORNER_DETECTION_TEST 1
 
 #define RESIZED_IMAGE_WIDTH 500
 

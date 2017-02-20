@@ -5,7 +5,7 @@
 #include "lbd_line_detector.h"
 #include "opencv2/line_descriptor.hpp"
 
-#define THE_SMALLEST_LINE_SEGMENT_LENGTH 100
+#define THE_SMALLEST_LINE_SEGMENT_LENGTH 50
 
 bool lbd_detector(cv::Mat &image)
 {

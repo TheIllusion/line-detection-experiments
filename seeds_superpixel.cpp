@@ -12,7 +12,7 @@ bool seeds_test(cv::Mat &image)
     cv::Mat color_img(image.rows, image.cols, CV_8UC3, cv::Scalar(0, 0, 255));
     cv::cvtColor(image, converted_img, cv::COLOR_BGR2HSV);
 
-#define SEEDS_NUM_SUPERPIXELS 100
+#define SEEDS_NUM_SUPERPIXELS 300
 #define SEEDS_NUM_LEVELS 5
 #define SEEDS_NUM_ITERATIONS 10
 

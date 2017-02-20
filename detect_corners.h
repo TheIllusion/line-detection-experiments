@@ -1,0 +1,15 @@
+//
+// Created by Illusion on 2017. 2. 20..
+//
+
+#ifndef LINE_SEGMENT_DETECTION_EXPERIMENTS_DETECT_CORNERS_H
+#define LINE_SEGMENT_DETECTION_EXPERIMENTS_DETECT_CORNERS_H
+
+#include "opencv2/opencv.hpp"
+
+#define HARRIS_CORNERS 0
+#define GFTT_GOOD_FEATURE_TO_TRACK 1
+
+bool detect_corners(cv::Mat &image);
+
+#endif //LINE_SEGMENT_DETECTION_EXPERIMENTS_DETECT_CORNERS_H
