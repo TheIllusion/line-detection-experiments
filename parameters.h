@@ -10,7 +10,7 @@
 
 // LBD (Line Band Descriptor)
 // 'An efficient and robust line segment matching approach based on LBD descriptor and pairwise geometric consistency'
-#define LINE_BAND_DESCRIPTOR_TEST 1
+#define LINE_BAND_DESCRIPTOR_TEST 0
 
 // SELECTIVE SEARCH
 #define SELECTIVE_SEARCH_TEST 0
@@ -20,6 +20,9 @@
 
 // Blob Detection Test
 #define BLOB_DETECTION_TEST 0
+
+// Watershed Test
+#define WATERSHED_TEST 1
 
 #define RESIZED_IMAGE_WIDTH 500
 

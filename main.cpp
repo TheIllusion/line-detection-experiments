@@ -6,10 +6,12 @@
 #include "selective_search.h"
 #include "seeds_superpixel.h"
 #include "simple_blob_detector.h"
+#include "watershed.h"
 
 using namespace std;
 
-#define TEST_SET_ROOT_PATH "/home/illusion/ClionProjects/line-detection-experiments/Document_Aligner_TestSet/Document_Aligner_TestSet/normal_set/original/"
+//#define TEST_SET_ROOT_PATH "/home/illusion/ClionProjects/line-detection-experiments/Document_Aligner_TestSet/Document_Aligner_TestSet/normal_set/original/"
+#define TEST_SET_ROOT_PATH "/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/"
 
 static char filename_buff[100];
 
@@ -33,7 +35,7 @@ static const char* file_name =
         //"/Users/Illusion/Documents/Video/Head_Cam/two_persons.png";
 
         //i7-2600k
-        //"IMG_1415_iphone.jpg";
+        "IMG_1415_iphone.jpg";
         //"IMG_1415_iphone.jpg";
         //"IMG_1416_iphone.jpg";
         //"IMG_1417_iphone.jpg";
@@ -44,7 +46,7 @@ static const char* file_name =
         //"20170125_152406_galaxy.jpg";
         //"20170125_152538_galaxy.jpg";
         //"20170125_153220_galaxy.jpg";
-        "20170125_153230_galaxy.jpg";
+        //"20170125_153230_galaxy.jpg";
         //"20170125_153242_galaxy.jpg";
 
 int main() {
@@ -92,6 +94,10 @@ int main() {
         return -1;
 #elif BLOB_DETECTION_TEST
     bool ret = simple_blob_detector(image);
+    if (ret == false)
+        return -1;
+#elif WATERSHED_TEST
+    bool ret = process_watershed(image);
     if (ret == false)
         return -1;
 #endif
