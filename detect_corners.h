@@ -9,6 +9,7 @@
 
 #define HARRIS_CORNERS 0
 #define GFTT_GOOD_FEATURE_TO_TRACK 1
+#define FAST_FEATURES_FROM_ACCELERATED_SEGMENT_TEST 0
 
 bool detect_corners(cv::Mat &image);
 

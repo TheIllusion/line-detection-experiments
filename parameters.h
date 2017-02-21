@@ -6,7 +6,7 @@
 #define LINE_SEGMENT_DETECTION_EXPERIMENTS_PARAMETERS_H
 
 // LSD algorithm
-#define LINE_SEGMENT_DETECTION_TEST 1
+#define LINE_SEGMENT_DETECTION_TEST 0
 
 // LBD (Line Band Descriptor)
 // 'An efficient and robust line segment matching approach based on LBD descriptor and pairwise geometric consistency'
@@ -25,7 +25,7 @@
 #define WATERSHED_TEST 0
 
 // Corner Detection Test
-#define CORNER_DETECTION_TEST 0
+#define CORNER_DETECTION_TEST 1
 
 #define RESIZED_IMAGE_WIDTH 500
 

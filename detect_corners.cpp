@@ -29,6 +29,21 @@ bool detect_corners(cv::Mat &image)
 
     cv::namedWindow("GFTT");
     cv::imshow("GFTT", gftt_corners);
+
+#elif FAST_FEATURES_FROM_ACCELERATED_SEGMENT_TEST
+    cv::Mat fast_corners = image.clone();
+
+    std::vector<cv::KeyPoint> keyPoints;
+
+    cv::Ptr<cv::FeatureDetector> fast = cv::FastFeatureDetector::create(40);
+
+    fast->detect(image, keyPoints);
+
+    cv::drawKeypoints(image, keyPoints, fast_corners, cv::Scalar(0, 0, 255), cv::DrawMatchesFlags::DRAW_OVER_OUTIMG);
+
+    cv::namedWindow("FAST");
+    cv::imshow("FAST", fast_corners);
+
 #endif
 
     return true;

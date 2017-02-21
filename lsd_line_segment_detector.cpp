@@ -4,7 +4,7 @@
 
 #include "lsd_line_segment_detector.h"
 
-#define MIN_LINE_SEG_LENGTH_LSD 300
+#define MIN_LINE_SEG_LENGTH_LSD 50.0
 
 bool lsd_detector(cv::Mat &image)
 {
@@ -31,15 +31,20 @@ bool lsd_detector(cv::Mat &image)
 
     for(std::vector<cv::Vec4f>::iterator it = lines_std.begin(); it != lines_std.end(); it++)
     {
-        double dist = cv::sqrt( (it->val[0] - it->val[1]) * (it->val[0] - it->val[1]) +
-                                (it->val[2] - it->val[3]) * (it->val[2] - it->val[3]));
+        double dist = cv::sqrt( (it->val[0] - it->val[2]) * (it->val[0] - it->val[2]) +
+                                (it->val[1] - it->val[3]) * (it->val[1] - it->val[3]));
         if(dist < MIN_LINE_SEG_LENGTH_LSD)
+        {
             it = lines_std.erase(it);
+            --it;
+        }
         else
-            std::cout << "dist = " << dist << std::endl;
-
+        {
+            //std::cout << "dist = " << dist << std::endl;
+        }
     }
 
+    std::cout << "Number of line segments(after deletion) " << lines_std.size() << std::endl;
 
     // Show found lines
     ls->drawSegments(image, lines_std);
