@@ -26,7 +26,7 @@ bool lsd_detector(cv::Mat &image)
     ls->detect(processing_image, lines_std, widths);
 
     double duration_ms = (double(cv::getTickCount()) - start) * 1000 / cv::getTickFrequency();
-    std::cout << "It took " << duration_ms << " ms." << std::endl;
+    std::cout << "LSD: It took " << duration_ms << " ms." << std::endl;
     std::cout << "Number of line segments " << lines_std.size() << std::endl;
 
     for(std::vector<cv::Vec4f>::iterator it = lines_std.begin(); it != lines_std.end(); it++)
