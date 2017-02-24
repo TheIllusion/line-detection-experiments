@@ -11,8 +11,8 @@
 
 using namespace std;
 
-#define TEST_SET_ROOT_PATH "/home/illusion/ClionProjects/line-detection-experiments-git/Document_Aligner_TestSet/Document_Aligner_TestSet/normal_set/original/"
-//#define TEST_SET_ROOT_PATH "/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/"
+//#define TEST_SET_ROOT_PATH "/home/illusion/ClionProjects/line-detection-experiments-git/Document_Aligner_TestSet/Document_Aligner_TestSet/normal_set/original/"
+#define TEST_SET_ROOT_PATH "/Users/Illusion/Documents/Data/Document_Aligner_TestSet/normal_set/original/"
 
 static char filename_buff[100];
 
@@ -44,8 +44,8 @@ static const char* file_name =
         //"IMG_1419_iphone.jpg";
         //"IMG_1420_iphone.jpg";
         //"IMG_1421_iphone.jpg";
-        //"20170125_152406_galaxy.jpg";
-        "20170125_152538_galaxy.jpg";
+        "20170125_152406_galaxy.jpg";
+        //"20170125_152538_galaxy.jpg";
         //"20170125_153220_galaxy.jpg";
         //"20170125_153230_galaxy.jpg";
         //"20170125_153242_galaxy.jpg";
