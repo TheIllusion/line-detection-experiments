@@ -103,10 +103,15 @@ bool process_watershed(cv::Mat &image)
     imshow("Markers", markers*10000);
 
     // Perform the watershed algorithm
+    double start = double(cv::getTickCount());
+
     watershed(src, markers);
     Mat mark = Mat::zeros(markers.size(), CV_8UC1);
     markers.convertTo(mark, CV_8UC1);
     bitwise_not(mark, mark);
+
+    double duration_ms = (double(cv::getTickCount()) - start) * 1000 / cv::getTickFrequency();
+    std::cout << "It took " << duration_ms << " ms. (Watershed)" << std::endl;
 
 //    imshow("Markers_v2", mark); // uncomment this if you want to see how the mark
     // image looks like at that point

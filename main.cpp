@@ -57,7 +57,7 @@ int main() {
     strcat(filename_buff, file_name);
 
     // open the image file
-#if !LINE_SEGMENT_DETECTION_TEST && !HARRIS_CORNERS &&!GFTT_GOOD_FEATURE_TO_TRACK
+#if WATERSHED_TEST || (!LINE_SEGMENT_DETECTION_TEST && !HARRIS_CORNERS &&!GFTT_GOOD_FEATURE_TO_TRACK)
     //&& !BLOB_DETECTION_TEST
     cv::Mat image = cv::imread(filename_buff, cv::IMREAD_COLOR);
 #else
